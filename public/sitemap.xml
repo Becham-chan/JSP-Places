@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- HashRouter URLs (#/) are not separately crawlable; this sitemap lists the
+     canonical top-level documents. Replace the domain after deploying. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/</loc></url>
+  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places</loc></url>
+  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/ikebukuro-apartment-303</loc></url>
+  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/aokigahara-forest</loc></url>
+  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/kiyotaki-tunnel</loc></url>
+  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/gunkanjima-island</loc></url>
+  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/nakagusuku-hotel-ruins</loc></url>
+  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/about</loc></url>
+</urlset>
