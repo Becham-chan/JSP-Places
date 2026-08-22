@@ -1,9 +1,9 @@
 // Lightweight bilingual dictionary (TH / EN)
 export const dictionary = {
   en: {
-    siteName: 'Kioku no Basho',
-    siteTagline: 'Places of Memory',
-    nav: { places: 'Places', about: 'About Me', menu: 'Open menu', close: 'Close menu' },
+    siteName: 'JSP Places',
+    siteTagline: 'Places with Real Incident',
+    nav: { places: 'Topics/Places', about: 'About Me', menu: 'Open menu', close: 'Close menu' },
     home: {
       heroEyebrow: 'A documentary archive',
       heroTitle: 'Places remember what people try to forget.',
@@ -22,8 +22,15 @@ export const dictionary = {
       filterCategory: 'Category',
       noResults: 'No places match your filters. The fog hides them for now.',
       resultsCount: (n) => `${n} place${n === 1 ? '' : 's'} found`,
+      comingSoonBadge: 'Coming Soon',
     },
     detail: {
+      comingSoonTitle: 'Coming Soon',
+      comingSoonBody:
+        'The full case file for this place has not been written yet. Please check back later.',
+      accuracyNote:
+        'Please note: the information on this page may contain inaccuracies or misinformation. It is compiled from secondhand sources, including games and internet folklore, and has not been fully verified. We sincerely apologize if any information is wrong.',
+      accuracyTitle: 'Accuracy of information',
       backToPlaces: '← Back to all places',
       location: 'Location',
       era: 'Era',
@@ -37,7 +44,7 @@ export const dictionary = {
     },
     footer: {
       disclaimer:
-        'Kioku no Basho is a non-commercial documentary project. Entries are compiled from public records, journalism, and local testimony. No graphic descriptions are included, and nothing here is intended to sensationalize tragedy. If you are struggling, please reach out — in Thailand, call the Samaritans of Thailand at 02-113-6787 (24h).',
+        'JSP Places is a non-commercial documentary project. Entries may contain inaccuracies — we apologize if any information is wrong. Entries are compiled from public records, journalism, and local testimony. No graphic descriptions are included, and nothing here is intended to sensationalize tragedy. If you are struggling, please reach out — in Thailand, call the Samaritans of Thailand at 02-113-6787 (24h).',
       credits: 'Built with React, Vite & Tailwind CSS.',
     },
     notFound: {
@@ -56,9 +63,9 @@ export const dictionary = {
     lightboxClose: 'Close image',
   },
   th: {
-    siteName: 'คิโอคุ โนะ บาโชะ',
-    siteTagline: 'สถานที่แห่งความทรงจำ',
-    nav: { places: 'สถานที่', about: 'เกี่ยวกับเรา', menu: 'เปิดเมนู', close: 'ปิดเมนู' },
+    siteName: 'JSP Places',
+    siteTagline: 'สถานที่แห่งเหตุการณ์จริง',
+    nav: { places: 'หัวข้อ/สถานที่', about: 'เกี่ยวกับเรา', menu: 'เปิดเมนู', close: 'ปิดเมนู' },
     home: {
       heroEyebrow: 'หอจดหมายเหตุเชิงสารคดี',
       heroTitle: 'สถานที่จดจำสิ่งที่ผู้คนพยายามลืม',
@@ -77,8 +84,14 @@ export const dictionary = {
       filterCategory: 'หมวดหมู่',
       noResults: 'ไม่พบสถานที่ที่ตรงกับตัวกรอง หมอกยังปกคลุมอยู่ในตอนนี้',
       resultsCount: (n) => `พบ ${n} สถานที่`,
+      comingSoonBadge: 'เร็ว ๆ นี้',
     },
     detail: {
+      comingSoonTitle: 'เร็ว ๆ นี้',
+      comingSoonBody: 'แฟ้มคดีฉบับเต็มของสถานที่นี้ยังไม่ถูกเขียน โปรดติดตามอีกครั้งภายหลัง',
+      accuracyNote:
+        'โปรดทราบ: ข้อมูลในหน้านี้อาจมีความคลาดเคลื่อนหรือข้อมูลที่ไม่ถูกต้อง รวบรวมจากแหล่งอ้างอิงทางอ้อม เช่น เกมและความเชื่อบนอินเทอร์เน็ต และยังไม่ได้รับการตรวจสอบยืนยัน เราขออภัยอย่างจริงใจหากข้อมูลใดไม่ถูกต้อง',
+      accuracyTitle: 'ความถูกต้องของข้อมูล',
       backToPlaces: '← กลับไปหน้าสถานที่ทั้งหมด',
       location: 'สถานที่',
       era: 'ยุคสมัย',
@@ -92,7 +105,7 @@ export const dictionary = {
     },
     footer: {
       disclaimer:
-        'คิโอคุ โนะ บาโชะเป็นโปรเจกต์สารคดีไม่แสวงหากำไร รวบรวมจากเอกสารสาธารณะ งานข่าว และคำบอกเล่าในท้องถิ่น ไม่มีคำอธิบายที่สะเทือนขวัญ และไม่มีเจตนาเปิดเผยโศกนาฏกรรมเพื่อดึงดูดความสนใจ หากคุณกำลังท้อแท้ โปรดติดต่อขอความช่วยเหลือ — ศูนย์ให้คำปรึกษาของไทย โทร 02-113-6787 (24 ชม.)',
+        'JSP Places เป็นโปรเจกต์สารคดีไม่แสวงหากำไร ข้อมูลอาจมีความคลาดเคลื่อน — ขออภัยหากข้อมูลใดไม่ถูกต้อง รวบรวมจากเอกสารสาธารณะ งานข่าว และคำบอกเล่าในท้องถิ่น ไม่มีคำอธิบายที่สะเทือนขวัญ และไม่มีเจตนาเปิดเผยโศกนาฏกรรมเพื่อดึงดูดความสนใจ หากคุณกำลังท้อแท้ โปรดติดต่อขอความช่วยเหลือ — ศูนย์ให้คำปรึกษาของไทย โทร 02-113-6787 (24 ชม.)',
       credits: 'สร้างด้วย React, Vite และ Tailwind CSS',
     },
     notFound: {

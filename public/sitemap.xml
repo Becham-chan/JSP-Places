@@ -2,12 +2,9 @@
 <!-- HashRouter URLs (#/) are not separately crawlable; this sitemap lists the
      canonical top-level documents. Replace the domain after deploying. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/</loc></url>
-  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places</loc></url>
-  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/ikebukuro-apartment-303</loc></url>
-  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/aokigahara-forest</loc></url>
-  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/kiyotaki-tunnel</loc></url>
-  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/gunkanjima-island</loc></url>
-  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/places/nakagusuku-hotel-ruins</loc></url>
-  <url><loc>https://EXAMPLE.github.io/kioku-no-basho/#/about</loc></url>
+  <url><loc>https://becham-chan.github.io/JSP-Places/</loc></url>
+  <url><loc>https://becham-chan.github.io/JSP-Places/#/places</loc></url>
+  <url><loc>https://becham-chan.github.io/JSP-Places/#/places/ibaraki-s-residence</loc></url>
+  <url><loc>https://becham-chan.github.io/JSP-Places/#/places/animal-hospital-k-shikoku</loc></url>
+  <url><loc>https://becham-chan.github.io/JSP-Places/#/about</loc></url>
 </urlset>

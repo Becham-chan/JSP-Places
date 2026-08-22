@@ -73,7 +73,15 @@ export default function PlaceDetail() {
       </header>
 
       <div className="mt-8">
-        {c.sections.map((s, i) => {
+        {place.comingSoon && (
+          <Reveal>
+            <div className="my-8 rounded-lg border border-bone/10 bg-ink-900 p-10 text-center">
+              <p className="font-display text-3xl tracking-wide text-fog">{t.detail.comingSoonTitle}</p>
+              <p className="mt-3 text-sm text-fog">{t.detail.comingSoonBody}</p>
+            </div>
+          </Reveal>
+        )}
+        {(c.sections ?? []).map((s, i) => {
           if (s.type === 'paragraph') {
             return (
               <Reveal key={i}>
@@ -102,6 +110,10 @@ export default function PlaceDetail() {
           return null
         })}
       </div>
+
+      <MessageBox variant="note" title={t.detail.accuracyTitle}>
+        {t.detail.accuracyNote}
+      </MessageBox>
 
       {related.length > 0 && (
         <section className="mt-16 border-t border-bone/10 pt-8">

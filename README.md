@@ -1,4 +1,4 @@
-# Kioku no Basho — 記憶の場所 / Places of Memory
+# JSP Places — Places with Real Incident
 
 A static, front-end-only bilingual (Thai/English) documentary archive of Japan's
 stigmatized properties ("jiko bukken" / 事故物件) and places of dark history.

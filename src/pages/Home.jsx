@@ -63,6 +63,7 @@ export default function Home() {
                 tags={p.categories.map((c) => t.categories[c])}
                 year={p.year}
                 tone={p.tone}
+                badge={p.comingSoon ? t.places.comingSoonBadge : undefined}
               />
             </Reveal>
           ))}

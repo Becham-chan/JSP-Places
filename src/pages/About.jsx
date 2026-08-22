@@ -9,14 +9,14 @@ export default function About() {
   const content = {
     en: {
       intro:
-        'Kioku no Basho began as a reading habit that got out of hand: Oshima Teru’s stigmatized-property map, court disclosure rulings, local news archives, and the quiet field of research sometimes called "dark tourism studies." This site is my attempt to gather a handful of those places and treat them the way they deserve — as stories about space, memory, and aftermath.',
+        'JSP Places began as a reading habit that got out of hand: Oshima Teru’s stigmatized-property map, the "Japan Stigmatized Property" (JSP) game series, local news archives, and the quiet field of research sometimes called "dark tourism studies." This site is my attempt to gather a handful of those places — including places referenced in the JSP games — and treat them the way they deserve — as stories about space, memory, and aftermath.',
       method:
         'Every entry is compiled from publicly available sources: news reporting, municipal records, UNESCO documentation, academic writing on jiko bukken disclosure law, and on-location photography where access is legal and safe. Exact addresses of occupied private residences are never published. Composite entries are labeled as such.',
       methodTitle: 'How entries are researched',
     },
     th: {
       intro:
-        'คิโอคุ โนะ บาโชะเริ่มจากนิสัยอ่านที่ควบคุมไม่อยู่: แผนที่อสังหาริมทรัพย์ต้องห้ามของโอะชิมะ เทะรุ คำวินิจฉัยศาลเรื่องการเปิดเผยข้อมูล หอเอกสารข่าวท้องถิ่น และสนามวิจัยเงียบ ๆ ที่บางคนเรียกว่า "การศึกษาการท่องเที่ยวมืด" เว็บไซต์นี้คือความพยายามของฉันที่จะรวมสถานที่เหล่านั้นไว้และปฏิบัติกับมันอย่างที่มันสมควรได้รับ — ในฐานะเรื่องเล่าว่าด้วยพื้นที่ ความทรงจำ และเรื่องราวหลังจบ',
+        'JSP Places เริ่มจากนิสัยอ่านที่ควบคุมไม่อยู่: แผนที่อสังหาริมทรัพย์ต้องห้ามของโอะชิมะ เทะรุ เกมชุด "Japan Stigmatized Property" (JSP) หอเอกสารข่าวท้องถิ่น และสนามวิจัยเงียบ ๆ ที่บางคนเรียกว่า "การศึกษาการท่องเที่ยวมืด" เว็บไซต์นี้คือความพยายามของฉันที่จะรวมสถานที่เหล่านั้น — รวมถึงสถานที่ที่ปรากฏในเกมชุด JSP — ไว้และปฏิบัติกับมันอย่างที่มันสมควรได้รับ ในฐานะเรื่องเล่าว่าด้วยพื้นที่ ความทรงจำ และเรื่องราวหลังจบ',
       method:
         'ทุกแฟ้มคดีรวบรวมจากแหล่งสาธารณะ: งานข่าว เอกสารเทศบาล เอกสาร UNESCO งานวิชาการเรื่องกฎหมายเปิดเผยจิโกะบุกเก็ง และภาพถ่ายถิ่นที่ที่การเข้าถึงถูกกฎหมายและปลอดภัย ไม่เปิดเผยที่อยู่จริงของที่พักอาศัยส่วนบุคคลที่มีผู้อยู่อาศัยเด็ดขาด และแฟ้มเชิงรวมจะถูกระบุไว้ชัดเจน',
       methodTitle: 'วิธีค้นคว้าแต่ละแฟ้ม',
