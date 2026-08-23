@@ -6,7 +6,7 @@ const toneGradients = {
   bruise: 'from-[#1c1030] via-[#12101a] to-[#0b0b0d]',
 }
 
-export default function CardBox({ to, title, location, excerpt, tags, year, tone = 'blood', badge }) {
+export default function CardBox({ to, title, location, excerpt, tags, year, tone = 'blood', badge, image }) {
   return (
     <Link
       to={to}
@@ -17,6 +17,14 @@ export default function CardBox({ to, title, location, excerpt, tags, year, tone
           toneGradients[tone] || toneGradients.blood
         }`}
       >
+        {image && (
+          <img
+            src={image}
+            alt=""
+            loading="lazy"
+            className="duotone absolute inset-0 h-full w-full object-cover opacity-70"
+          />
+        )}
         <div className="vignette absolute inset-0" />
         {badge && (
           <span className="absolute left-3 top-3 rounded-full border border-bone/30 bg-black/60 px-2.5 py-0.5 text-xs uppercase tracking-widest text-bone">

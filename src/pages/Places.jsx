@@ -87,6 +87,7 @@ export default function Places() {
                 tags={p.categories.map((c) => t.categories[c])}
                 year={p.year}
                 tone={p.tone}
+                image={p.image}
                 badge={p.comingSoon ? t.places.comingSoonBadge : undefined}
               />
             </Reveal>

@@ -85,7 +85,25 @@ export default function PlaceDetail() {
           if (s.type === 'paragraph') {
             return (
               <Reveal key={i}>
-                <p className="my-5 leading-8 text-bone/90">{s.text}</p>
+                <p className="my-5 leading-8 text-bone/90">
+                  {s.segments
+                    ? s.segments.map((seg, j) =>
+                        seg.href ? (
+                          <a
+                            key={j}
+                            href={seg.href}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="text-bone underline decoration-blood/60 underline-offset-4 hover:decoration-blood"
+                          >
+                            {seg.text}
+                          </a>
+                        ) : (
+                          <span key={j}>{seg.text}</span>
+                        ),
+                      )
+                    : s.text}
+                </p>
               </Reveal>
             )
           }
