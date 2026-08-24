@@ -39,9 +39,16 @@ function Lightbox({ children, onClose, label }) {
  * Embedded media block for story bodies.
  * type: 'image' | 'video' (responsive embed) | 'map' (placeholder frame — no external calls)
  */
-export default function AttachmentBox({ type = 'map', src, caption, aspect = 'aspect-video' }) {
+export default function AttachmentBox({ type = 'map', src, caption, link, aspect = 'aspect-video' }) {
   const { t } = useLanguage()
   const [open, setOpen] = useState(false)
+
+  const resolvedSrc =
+    src && (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('data:'))
+      ? src
+      : src
+        ? `${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}`
+        : ''
 
   const frame = (inner) => (
     <figure className="my-8">
@@ -49,9 +56,21 @@ export default function AttachmentBox({ type = 'map', src, caption, aspect = 'as
         {inner}
       </div>
       {caption && (
-        <figcaption className="mt-2 text-center text-xs tracking-wide text-fog">
+        <figcaption className="mt-2.5 text-center text-sm tracking-wide text-fog">
           {caption}
         </figcaption>
+      )}
+      {link && (
+        <div className="mt-1 text-center">
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-fog/90 underline decoration-bone/30 underline-offset-4 hover:text-bone hover:decoration-blood transition-colors"
+          >
+            <span>🔗 {link}</span>
+          </a>
+        </div>
       )}
     </figure>
   )
@@ -66,13 +85,13 @@ export default function AttachmentBox({ type = 'map', src, caption, aspect = 'as
             className="h-full w-full cursor-zoom-in"
             aria-label={caption || 'Expand image'}
           >
-            <img src={src} alt={caption || ''} loading="lazy" className="duotone h-full w-full object-cover" />
+            <img src={resolvedSrc} alt={caption || ''} loading="lazy" className="duotone h-full w-full object-cover" />
           </button>,
         )}
         <AnimatePresence>
           {open && (
             <Lightbox onClose={() => setOpen(false)} label={t.lightboxClose}>
-              <img src={src} alt={caption || ''} className="max-h-[80vh] w-auto" />
+              <img src={resolvedSrc} alt={caption || ''} className="max-h-[80vh] w-auto" />
             </Lightbox>
           )}
         </AnimatePresence>
@@ -81,11 +100,15 @@ export default function AttachmentBox({ type = 'map', src, caption, aspect = 'as
   }
 
   if (type === 'video') {
-    const yt = src?.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]+)/)
+    const ytMatch = src?.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]+)/)
+    const timeMatch = src?.match(/[?&](?:t|start)=(\d+)/)
+    const startQuery = timeMatch ? `?start=${timeMatch[1]}` : ''
+    const embedUrl = ytMatch ? `https://www.youtube-nocookie.com/embed/${ytMatch[1]}${startQuery}` : null
+
     return frame(
-      yt ? (
+      embedUrl ? (
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${yt[1]}`}
+          src={embedUrl}
           title={caption || 'Video'}
           loading="lazy"
           allowFullScreen
@@ -112,3 +135,4 @@ export default function AttachmentBox({ type = 'map', src, caption, aspect = 'as
     </div>,
   )
 }
+

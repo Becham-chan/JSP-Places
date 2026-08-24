@@ -32,6 +32,24 @@ export default function PlaceDetail() {
     isPartOf: { '@type': 'WebSite', name: t.siteName },
   }
 
+  const renderSegments = (segments) => {
+    return segments.map((seg, j) =>
+      seg.href ? (
+        <a
+          key={j}
+          href={seg.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-bone underline decoration-blood/60 underline-offset-4 hover:text-white hover:decoration-blood transition-colors"
+        >
+          {seg.text}
+        </a>
+      ) : (
+        <span key={j}>{seg.text}</span>
+      ),
+    )
+  }
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-12">
       <Helmet>
@@ -44,26 +62,26 @@ export default function PlaceDetail() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <Link to="/places" className="text-sm text-fog hover:text-bone">
+      <Link to="/places" className="text-base text-fog hover:text-bone transition-colors">
         {t.detail.backToPlaces}
       </Link>
 
       <header className="mt-6 border-b border-bone/10 pb-8">
-        <h1 className="font-display text-4xl leading-tight">{c.title}</h1>
-        <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-3">
+        <h1 className="font-display text-4xl sm:text-5xl leading-tight text-bone">{c.title}</h1>
+        <dl className="mt-6 grid gap-4 text-sm sm:text-base sm:grid-cols-3">
           <div>
             <dt className="text-xs uppercase tracking-widest text-fog">{t.detail.location}</dt>
-            <dd className="mt-1">{c.location} · {regions[place.region][lang]}</dd>
+            <dd className="mt-1 font-medium">{c.location} · {regions[place.region][lang]}</dd>
           </div>
           <div>
             <dt className="text-xs uppercase tracking-widest text-fog">{t.detail.era}</dt>
-            <dd className="mt-1">{place.year}</dd>
+            <dd className="mt-1 font-medium">{place.year}</dd>
           </div>
           <div>
             <dt className="text-xs uppercase tracking-widest text-fog">{t.detail.category}</dt>
             <dd className="mt-1 flex flex-wrap gap-2">
               {place.categories.map((cat) => (
-                <span key={cat} className="rounded-full border border-bone/15 px-2.5 py-0.5 text-xs text-fog">
+                <span key={cat} className="rounded-full border border-bone/15 px-2.5 py-0.5 text-xs sm:text-sm text-fog">
                   {t.categories[cat]}
                 </span>
               ))}
@@ -72,37 +90,32 @@ export default function PlaceDetail() {
         </dl>
       </header>
 
-      <div className="mt-8">
+      <div className="mt-8 space-y-6">
         {place.comingSoon && (
           <Reveal>
             <div className="my-8 rounded-lg border border-bone/10 bg-ink-900 p-10 text-center">
               <p className="font-display text-3xl tracking-wide text-fog">{t.detail.comingSoonTitle}</p>
-              <p className="mt-3 text-sm text-fog">{t.detail.comingSoonBody}</p>
+              <p className="mt-3 text-base text-fog">{t.detail.comingSoonBody}</p>
             </div>
           </Reveal>
         )}
         {(c.sections ?? []).map((s, i) => {
+          if (s.type === 'hook') {
+            return (
+              <Reveal key={i}>
+                <div className="my-8 rounded-xl border-l-4 border-blood bg-gradient-to-r from-blood/20 via-ink-900/90 to-ink-900/60 p-6 sm:p-8 shadow-lg shadow-blood/10">
+                  <p className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide text-bone leading-snug">
+                    {s.segments ? renderSegments(s.segments) : s.text}
+                  </p>
+                </div>
+              </Reveal>
+            )
+          }
           if (s.type === 'paragraph') {
             return (
               <Reveal key={i}>
-                <p className="my-5 leading-8 text-bone/90">
-                  {s.segments
-                    ? s.segments.map((seg, j) =>
-                        seg.href ? (
-                          <a
-                            key={j}
-                            href={seg.href}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            className="text-bone underline decoration-blood/60 underline-offset-4 hover:decoration-blood"
-                          >
-                            {seg.text}
-                          </a>
-                        ) : (
-                          <span key={j}>{seg.text}</span>
-                        ),
-                      )
-                    : s.text}
+                <p className="my-6 text-lg sm:text-xl leading-relaxed sm:leading-9 text-bone/90 font-normal">
+                  {s.segments ? renderSegments(s.segments) : s.text}
                 </p>
               </Reveal>
             )
@@ -121,6 +134,7 @@ export default function PlaceDetail() {
                 type={s.atype}
                 src={s.src}
                 caption={s.caption}
+                link={s.link}
                 aspect={s.aspect}
               />
             )
@@ -129,19 +143,21 @@ export default function PlaceDetail() {
         })}
       </div>
 
-      <MessageBox variant="note" title={t.detail.accuracyTitle}>
-        {t.detail.accuracyNote}
-      </MessageBox>
+      <div className="mt-10">
+        <MessageBox variant="note" title={t.detail.accuracyTitle}>
+          {t.detail.accuracyNote}
+        </MessageBox>
+      </div>
 
       {related.length > 0 && (
         <section className="mt-16 border-t border-bone/10 pt-8">
-          <h2 className="mb-4 font-display text-2xl">{t.detail.related}</h2>
+          <h2 className="mb-4 font-display text-2xl sm:text-3xl">{t.detail.related}</h2>
           <ul className="flex flex-wrap gap-3">
             {related.map((r) => (
               <li key={r.slug}>
                 <Link
                   to={`/places/${r.slug}`}
-                  className="inline-block rounded border border-bone/15 px-4 py-2 text-sm text-fog hover:border-blood hover:text-bone"
+                  className="inline-block rounded border border-bone/15 px-4 py-2 text-base text-fog hover:border-blood hover:text-bone transition-colors"
                 >
                   {r.i18n[lang].title}
                 </Link>
@@ -153,3 +169,4 @@ export default function PlaceDetail() {
     </article>
   )
 }
+

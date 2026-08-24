@@ -33,7 +33,7 @@ export default function Places() {
   }, [query, region, category, lang])
 
   const selectCls =
-    'rounded border border-bone/15 bg-ink-900 px-3 py-2 text-sm text-bone focus:border-blood focus:outline-none'
+    'rounded-lg border border-bone/15 bg-ink-900 px-3.5 py-2.5 text-base text-bone focus:border-blood focus:outline-none'
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">
@@ -51,7 +51,7 @@ export default function Places() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t.places.searchPlaceholder}
           aria-label={t.places.searchPlaceholder}
-          className="min-w-[220px] flex-1 rounded border border-bone/15 bg-ink-900 px-3 py-2 text-sm text-bone placeholder:text-fog/60 focus:border-blood focus:outline-none"
+          className="min-w-[220px] flex-1 rounded-lg border border-bone/15 bg-ink-900 px-3.5 py-2.5 text-base text-bone placeholder:text-fog/60 focus:border-blood focus:outline-none"
         />
         <select value={region} onChange={(e) => setRegion(e.target.value)} className={selectCls} aria-label="Region filter">
           <option value="all">{t.places.filterAll}</option>
@@ -67,12 +67,12 @@ export default function Places() {
         </select>
       </div>
 
-      <p className="mb-6 text-xs uppercase tracking-widest text-fog">
+      <p className="mb-6 text-sm uppercase tracking-widest text-fog">
         {t.places.resultsCount(filtered.length)}
       </p>
 
       {filtered.length === 0 ? (
-        <p className="rounded-lg border border-bone/10 bg-ink-900 p-10 text-center font-display text-lg text-fog">
+        <p className="rounded-lg border border-bone/10 bg-ink-900 p-10 text-center font-display text-xl text-fog">
           {t.places.noResults}
         </p>
       ) : (
@@ -97,3 +97,4 @@ export default function Places() {
     </section>
   )
 }
+
